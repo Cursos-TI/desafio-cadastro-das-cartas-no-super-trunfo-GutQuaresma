@@ -10,6 +10,7 @@ int main() {
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     int populacao, populacao2, pontost, pontost2;
     float area, area2, pib, pib2;
+    float denpo, denpo2, pibper, pibper2; //variáveis adicionadas no Nível Aventureiro
     char estado, estado2;
     char codigo[4], codigo2[4];
     char nome[30], nome2[30];
@@ -21,13 +22,13 @@ int main() {
     printf("Siga as orientações para o cadastro de carta!\n\n");
 
     printf("Cadastre o Estado(A-H): ");
-    scanf(" %c", &estado);
+    scanf(" %c", &estado); //espaço antes do '%' para programa não ler nenhum caractere no buffer
 
     printf("Cadastre o código da carta(Ex: A01): ");
     scanf("%s", codigo);
 
     printf("Cadastre o nome da cidade: ");
-    scanf(" %30[^\n]s", nome);
+    scanf(" %30[^\n]s", nome); //' %30[^\n]s' para a leitura do programa não ser limitada até o primeiro espaço
 
     printf("Cadastre a população da cidade: ");
     scanf("%d", &populacao);
@@ -40,6 +41,11 @@ int main() {
 
     printf("Cadastre a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &pontost);
+
+    //Cálculo da Densidade Populacional e PIB per Capita
+    denpo = (float)populacao / area;
+    pibper = (float)pib / populacao;
+
     printf("Carta cadastrada!\n\n");
     //Cadastro da primeira carta concluido!
 
@@ -66,6 +72,11 @@ int main() {
 
     printf("Cadastre a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &pontost2);
+
+    //Cálculo da Densidade Populacional e PIB per Capita
+    denpo2 = (float)populacao2 / area2;
+    pibper2 = (float)pib2 / populacao2;
+
     printf("Carta cadastrada!\n\n");
     //Cadastro da segunda carta concluido!
     
@@ -80,7 +91,10 @@ int main() {
     printf("População: %d\n", populacao);
     printf("Área: %fkm²\n", area);
     printf("PIB: %.3f bilhões de reais\n", pib);
-    printf("Pontos Turísticos: %d\n\n", pontost);
+    printf("Pontos Turísticos: %d\n", pontost);
+    //exibição de novas informações - Nível Aventureiro
+    printf("Densidade Populacional: %f hab/km²\n", denpo); 
+    printf("PIB per Capita: %.2f reais\n\n", pibper);
 
     //Exibição da segunda carta!
     printf("Carta 2:\n");
@@ -90,7 +104,10 @@ int main() {
     printf("População: %d\n", populacao2);
     printf("Área: %fkm²\n", area2);
     printf("PIB: %.3f bilhões de reais\n", pib2);
-    printf("Pontos Turísticos: %d\n\n", pontost2);
+    printf("Pontos Turísticos: %d\n", pontost2);
+    //exibição de novas informações - Nível Aventureiro
+    printf("Densidade Populacional: %f hab/km²\n", denpo2); 
+    printf("PIB per Capita: %.2f reais\n\n", pibper2);
 
     return 0;
 }
